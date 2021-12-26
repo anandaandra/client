@@ -26,7 +26,7 @@
             class="font-weight-bolder text-center font-size-h4 font-size-h1-lg"
             style="color: #ffffff;"
           >
-            Welcome to AZURE<br />Uji Coba Website Pendataan Nilai TAK
+            Welcome to TAK<br />Transcript Point System STMIK Primakara
           </h3>
         </div>
         <!-- <div
@@ -51,17 +51,8 @@
                 <h3
                   class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg"
                 >
-                  Welcome to AZURE
+                  Welcome to TAK
                 </h3>
-                <span class="text-muted font-weight-bold font-size-h4"
-                  >New Here?
-                  <a
-                    id="kt_login_signup"
-                    class="text-primary font-weight-bolder"
-                    @click="showForm('signup')"
-                    >Create an Account</a
-                  ></span
-                >
               </div>
               <div class="form-group">
                 <label class="font-size-h6 font-weight-bolder text-dark"
@@ -85,12 +76,6 @@
                 <div class="d-flex justify-content-between mt-n5">
                   <label class="font-size-h6 font-weight-bolder text-dark pt-5"
                     >Password</label
-                  >
-                  <a
-                    class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
-                    id="kt_login_forgot"
-                    @click="showForm('forgot')"
-                    >Forgot Password ?</a
                   >
                 </div>
                 <div
@@ -259,21 +244,6 @@
           </div>
           <!--end::Forgot-->
         </div>
-        <!--begin::Content footer-->
-        <div
-          class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0"
-        >
-          <a href="#" class="text-primary font-weight-bolder font-size-h5"
-            >Terms</a
-          >
-          <a href="#" class="text-primary ml-10 font-weight-bolder font-size-h5"
-            >Plans</a
-          >
-          <a href="#" class="text-primary ml-10 font-weight-bolder font-size-h5"
-            >Contact Us</a
-          >
-        </div>
-        <!--end::Content footer-->
       </div>
       <!--end::Content-->
     </div>
