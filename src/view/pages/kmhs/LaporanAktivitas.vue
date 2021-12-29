@@ -17,7 +17,7 @@
       </b-alert>
     </div>
 
-    <div class="col-md-10" data-app>
+    <div class="col-md-12" data-app>
       <TableTakmhs></TableTakmhs>
     </div>
   </div>
