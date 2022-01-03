@@ -41,7 +41,7 @@ export default {
       { text: "NIM", value: "nim" },
       { text: "Name", value: "name" },
       { text: "Nama Kegiatan", value: "kegiatan" },
-      { text: "Prodi", value: "prodi" },
+      { text: "Prodi", value: "prodi" }
     ],
     kelasbuka: [],
     defaultItem: {
@@ -50,14 +50,14 @@ export default {
       name: "",
       kegiatan: "",
       prodi: "",
-      tgl: "",
-    },
+      tgl: ""
+    }
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    }
   },
 
   watch: {},
@@ -75,7 +75,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -83,7 +83,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -91,7 +91,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -99,7 +99,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -107,10 +107,10 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
-        },
+          tgl: "2 Mei 2020"
+        }
       ];
-    },
-  },
+    }
+  }
 };
 </script>

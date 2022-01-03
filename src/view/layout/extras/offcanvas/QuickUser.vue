@@ -91,8 +91,7 @@
           </div>
         </div>
         <!--end::Header-->
-      
-       </perfect-scrollbar>
+      </perfect-scrollbar>
       <!--end::Content-->
     </div>
   </div>

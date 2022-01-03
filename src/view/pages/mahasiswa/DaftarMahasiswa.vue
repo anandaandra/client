@@ -165,65 +165,65 @@ export default {
         {
           no: "1",
           kegiatan: "Frozen Yogurt",
-          poin: 159,
+          poin: 159
         },
         {
           no: "2",
           kegiatan: "Ice cream sandwich",
-          poin: 237,
+          poin: 237
         },
         {
           no: "3",
           kegiatan: "Eclair",
-          poin: 262,
+          poin: 262
         },
         {
           no: "4",
           kegiatan: "Cupcake",
-          poin: 305,
+          poin: 305
         },
         {
           no: "5",
           kegiatan: "Gingerbread",
-          poin: 356,
+          poin: 356
         },
         {
           no: "6",
           kegiatan: "Jelly bean",
-          poin: 375,
+          poin: 375
         },
         {
           no: "5",
           kegiatan: "Lollipop",
-          poin: 392,
+          poin: 392
         },
         {
           no: "6",
           kegiatan: "Honeycomb",
-          poin: 408,
+          poin: 408
         },
         {
           no: "7",
           kegiatan: "Donut",
-          poin: 452,
+          poin: 452
         },
         {
           no: "8",
           kegiatan: "KitKat",
-          poin: 518,
-        },
-      ],
+          poin: 518
+        }
+      ]
     };
   },
   components: {},
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [
       { title: "Mahasiswa", route: "/daftarmhs" },
-      { title: "Daftar Mahasiswa", route: "/daftarmhs" },
+      { title: "Daftar Mahasiswa", route: "/daftarmhs" }
     ]);
   },
   computed: {
-    ...mapGetters(["currentUserPhoto"]),
-  },
+    ...mapGetters(["currentUserPhoto"])
+  }
 };
 </script>

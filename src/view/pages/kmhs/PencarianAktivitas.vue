@@ -34,11 +34,11 @@ import TablePencarianAktas from "@/view/content/widgets/kemahasiswaan/TablePenca
 
 export default {
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTCard,
-    TablePencarianAktas,
-  },
+    TablePencarianAktas
+  }
 };
 </script>

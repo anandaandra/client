@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="row">
-    </div>
+    <div class="row"></div>
   </div>
 </template>
 
@@ -10,10 +9,9 @@ import { SET_BREADCRUMB } from "@/core/services/store/breadcrumbs.module";
 
 export default {
   name: "tak",
-  components: {
-  },
+  components: {},
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [{ title: "TAK" }]);
-  },
+  }
 };
 </script>

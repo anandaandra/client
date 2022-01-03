@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="d-flex flex-column flex-root" v-if="isAuthenticated">
+    <div class="d-flex flex-column flex-root" v-if="true">
       <!-- begin:: Header Mobile -->
       <KTHeaderMobile></KTHeaderMobile>
       <!-- end:: Header Mobile -->
@@ -38,7 +38,7 @@
               <div
                 :class="{
                   'container-fluid': contentFluid,
-                  container: !contentFluid,
+                  container: !contentFluid
                 }"
               >
                 <transition name="fade-in-up">
@@ -69,7 +69,7 @@ import KTScrollTop from "@/view/layout/extras/ScrollTop";
 import Loader from "@/view/content/Loader.vue";
 import {
   ADD_BODY_CLASSNAME,
-  REMOVE_BODY_CLASSNAME,
+  REMOVE_BODY_CLASSNAME
 } from "@/core/services/store/htmlclass.module.js";
 
 export default {
@@ -82,7 +82,7 @@ export default {
     KTSubheader,
     // KTStickyToolbar,
     KTScrollTop,
-    Loader,
+    Loader
   },
   beforeMount() {
     // show page loading
@@ -93,9 +93,9 @@ export default {
   },
   mounted() {
     // check if current user is authenticated
-    if (!this.isAuthenticated) {
-      this.$router.push({ name: "login" });
-    }
+    // if (!this.isAuthenticated) {
+    //   this.$router.push({ name: "login" });
+    // }
 
     // Simulate the delay page loading
     setTimeout(() => {
@@ -109,7 +109,7 @@ export default {
       "isAuthenticated",
       "breadcrumbs",
       "pageTitle",
-      "layoutConfig",
+      "layoutConfig"
     ]),
 
     /**
@@ -159,7 +159,7 @@ export default {
      */
     subheaderDisplay() {
       return !!this.layoutConfig("subheader.display");
-    },
-  },
+    }
+  }
 };
 </script>

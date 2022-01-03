@@ -100,12 +100,6 @@
                 >
                   Sign In
                 </button>
-                <button
-                  type="button"
-                  class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg"
-                >
-                
-                </button>
               </div>
             </form>
           </div>

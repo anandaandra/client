@@ -35,7 +35,7 @@ export default {
       jurusan: [
         { text: "Teknik Informatika", value: "if" },
         { text: "Sistem Informasi", value: "si" },
-        { text: "Sistem Informasi Akuntansi", value: "sia" },
+        { text: "Sistem Informasi Akuntansi", value: "sia" }
       ],
       angkatan: [
         { text: "2014", value: "2014" },
@@ -45,7 +45,7 @@ export default {
         { text: "2018", value: "2018" },
         { text: "2019", value: "2019" },
         { text: "2020", value: "2020" },
-        { text: "2021", value: "2021" },
+        { text: "2021", value: "2021" }
       ],
       tahun: [
         { text: "2014", value: "2014" },
@@ -55,21 +55,21 @@ export default {
         { text: "2018", value: "2018" },
         { text: "2019", value: "2019" },
         { text: "2020", value: "2020" },
-        { text: "2021", value: "2021" },
-      ],
+        { text: "2021", value: "2021" }
+      ]
     };
   },
   components: {
-    TableTakmhs,
+    TableTakmhs
   },
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [
       { title: "Mahasiswa", route: "/daftarmhs" },
-      { title: "Daftar Mahasiswa", route: "/daftarmhs" },
+      { title: "Daftar Mahasiswa", route: "/daftarmhs" }
     ]);
   },
   computed: {
-    ...mapGetters(["currentUserPhoto"]),
-  },
+    ...mapGetters(["currentUserPhoto"])
+  }
 };
 </script>

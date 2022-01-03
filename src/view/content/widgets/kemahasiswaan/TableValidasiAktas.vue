@@ -259,7 +259,7 @@ export default {
       { text: "Nama Kegiatan", value: "kegiatan" },
       { text: "Prodi", value: "prodi" },
       { text: "Tanggal Input", value: "tgl" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "Actions", value: "actions", sortable: false }
     ],
     kelasbuka: [],
     editedIndex: -1,
@@ -269,7 +269,7 @@ export default {
       name: "",
       kegiatan: "",
       prodi: "",
-      tgl: "",
+      tgl: ""
     },
     defaultItem: {
       no: "",
@@ -277,20 +277,20 @@ export default {
       name: "",
       kegiatan: "",
       prodi: "",
-      tgl: "",
-    },
+      tgl: ""
+    }
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Data Mahasiswa";
-    },
+    }
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
+    }
   },
 
   created() {
@@ -306,7 +306,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -314,7 +314,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -322,7 +322,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -330,7 +330,7 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
+          tgl: "2 Mei 2020"
         },
         {
           no: "1",
@@ -338,8 +338,8 @@ export default {
           name: "Ayunda Desri",
           kegiatan: "Lomba berenang se-Bali",
           prodi: "SI",
-          tgl: "2 Mei 2020",
-        },
+          tgl: "2 Mei 2020"
+        }
       ];
     },
 
@@ -364,7 +364,7 @@ export default {
         this.kelasbuka.push(this.editedItem);
       }
       this.close();
-    },
-  },
+    }
+  }
 };
 </script>

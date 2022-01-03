@@ -34,11 +34,11 @@ import FormUpload from "@/view/content/widgets/kemahasiswaan/FormUpload.vue";
 
 export default {
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTCard,
-    FormUpload,
-  },
+    FormUpload
+  }
 };
 </script>

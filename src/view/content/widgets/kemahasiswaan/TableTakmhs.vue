@@ -140,7 +140,7 @@ export default {
       { text: "Prodi", value: "prodi" },
       { text: "Nama", value: "name" },
       { text: "Poin TAK", value: "tak" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "Actions", value: "actions", sortable: false }
     ],
     mahasiswa: [],
     editedIndex: -1,
@@ -149,27 +149,27 @@ export default {
       name: "",
       nim: "",
       prodi: "",
-      tak: null,
+      tak: null
     },
     defaultItem: {
       no: null,
       name: "",
       nim: "",
       prodi: "",
-      tak: null,
-    },
+      tak: null
+    }
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    }
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
+    }
   },
 
   created() {
@@ -184,29 +184,29 @@ export default {
           name: "I Putu Bagus Aryahstiax",
           nim: "1820129103",
           prodi: "IF",
-          tak: 122,
+          tak: 122
         },
         {
           no: 1,
           name: "I Putu Bagus Aryahstiax",
           nim: "1820129103",
           prodi: "IF",
-          tak: 122,
+          tak: 122
         },
         {
           no: 1,
           name: "I Putu Bagus Aryahstiax",
           nim: "1820129103",
           prodi: "IF",
-          tak: 122,
+          tak: 122
         },
         {
           no: 1,
           name: "I Putu Bagus Aryahstiax",
           nim: "1820129103",
           prodi: "IF",
-          tak: 122,
-        },
+          tak: 122
+        }
       ];
     },
 
@@ -231,7 +231,7 @@ export default {
         this.mahasiswa.push(this.editedItem);
       }
       this.close();
-    },
-  },
+    }
+  }
 };
 </script>

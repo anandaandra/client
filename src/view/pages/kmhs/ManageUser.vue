@@ -29,11 +29,11 @@ import TableManageUser from "@/view/content/widgets/kemahasiswaan/TableManageUse
 
 export default {
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTCard,
-    TableManageUser,
-  },
+    TableManageUser
+  }
 };
 </script>

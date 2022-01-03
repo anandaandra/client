@@ -110,12 +110,12 @@ import TableDetailLaporan from "@/view/content/widgets/kemahasiswaan/TableDetail
 export default {
   name: "custom-page",
   components: {
-    TableDetailLaporan,
+    TableDetailLaporan
   },
   data() {
     return {
       tabIndex: 0,
-      matkul: "",
+      matkul: ""
     };
   },
   mounted() {
@@ -144,7 +144,7 @@ export default {
 
       // set current active tab
       target.classList.add("active");
-    },
+    }
   },
   computed: {
     ...mapGetters(["currentUserPersonalInfo"]),
@@ -155,7 +155,7 @@ export default {
         " " +
         this.currentUserPersonalInfo.surname
       );
-    },
-  },
+    }
+  }
 };
 </script>

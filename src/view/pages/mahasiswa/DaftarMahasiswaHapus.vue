@@ -43,11 +43,11 @@ export default {
   mounted() {
     this.$store.dispatch(SET_BREADCRUMB, [
       { title: "Mahasiswa", route: "/daftarmhs" },
-      { title: "Daftar Mahasiswa Hapus", route: "/daftarmhs" },
+      { title: "Daftar Mahasiswa Hapus", route: "/daftarmhs" }
     ]);
   },
   computed: {
-    ...mapGetters(["currentUserPhoto"]),
-  },
+    ...mapGetters(["currentUserPhoto"])
+  }
 };
 </script>

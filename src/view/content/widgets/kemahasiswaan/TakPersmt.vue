@@ -35,15 +35,15 @@ import KTCardNilai from "@/view/content/widgets/kemahasiswaan/comp/TAKSMT.vue";
 
 export default {
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTCard,
-    KTCardNilai,
+    KTCardNilai
   },
   computed: {},
   data() {
     return {};
-  },
+  }
 };
 </script>

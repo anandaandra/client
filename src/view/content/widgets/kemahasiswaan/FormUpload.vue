@@ -48,7 +48,7 @@ export default {
     desc: { required },
     name: { required, maxLength: maxLength(33) },
     email: { required, email },
-    select: { required },
+    select: { required }
   },
 
   data: () => ({
@@ -56,7 +56,7 @@ export default {
     name: "",
     email: "",
     select: null,
-    informasi: ["Informasi Umum", "Informasi Lomba"],
+    informasi: ["Informasi Umum", "Informasi Lomba"]
   }),
 
   computed: {
@@ -80,7 +80,7 @@ export default {
       !this.$v.email.email && errors.push("Must be valid e-mail");
       !this.$v.email.required && errors.push("E-mail is required");
       return errors;
-    },
+    }
   },
 
   methods: {
@@ -92,7 +92,7 @@ export default {
       this.name = "";
       this.email = "";
       this.select = null;
-    },
-  },
+    }
+  }
 };
 </script>

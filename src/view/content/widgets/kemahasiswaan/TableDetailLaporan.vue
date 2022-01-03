@@ -21,20 +21,20 @@ export default {
     headers: [
       { text: "Koke Mk", value: "no" },
       { text: "Matakuliah", value: "kegiatan" },
-      { text: "Total Poin:", value: "poin" },
+      { text: "Total Poin:", value: "poin" }
     ],
     detailkegiatan: [],
     editedIndex: -1,
     editedItem: {
       no: "",
       kegiatan: "",
-      poin: null,
+      poin: null
     },
     defaultItem: {
       no: "",
       kegiatan: "",
-      poin: null,
-    },
+      poin: null
+    }
   }),
 
   computed: {},
@@ -49,25 +49,25 @@ export default {
         {
           no: "1",
           kegiatan: "Sertifikasi MOS",
-          poin: 20,
+          poin: 20
         },
         {
           no: "1",
           kegiatan: "Sertifikasi MOS",
-          poin: 20,
+          poin: 20
         },
         {
           no: "1",
           kegiatan: "Sertifikasi MOS",
-          poin: 20,
+          poin: 20
         },
         {
           no: "1",
           kegiatan: "Sertifikasi MOS",
-          poin: 20,
-        },
+          poin: 20
+        }
       ];
-    },
-  },
+    }
+  }
 };
 </script>

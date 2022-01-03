@@ -99,7 +99,7 @@ export default {
       { text: "Nama", value: "nama" },
       { text: "Username", value: "username" },
       { text: "Status", value: "status" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "Actions", value: "actions", sortable: false }
     ],
     kelasbuka: [],
     editedIndex: -1,
@@ -108,27 +108,27 @@ export default {
       nama: "",
       username: "",
       password: "",
-      status: false,
+      status: false
     },
     defaultItem: {
       no: "",
       nama: "",
       username: "",
       password: "",
-      status: false,
-    },
+      status: false
+    }
   }),
 
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    }
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
+    }
   },
 
   created() {
@@ -146,26 +146,26 @@ export default {
           no: "1",
           nama: "Devi",
           username: "devi",
-          status: "aktif",
+          status: "aktif"
         },
         {
           no: "2",
           nama: "	evi",
           username: "devi",
-          status: "aktif",
+          status: "aktif"
         },
         {
           no: "4",
           nama: "	evi",
           username: "devi",
-          status: "aktif",
+          status: "aktif"
         },
         {
           no: "3",
           nama: "	evi",
           username: "devi",
-          status: "aktif",
-        },
+          status: "aktif"
+        }
       ];
     },
 
@@ -190,7 +190,7 @@ export default {
         this.kelasbuka.push(this.editedItem);
       }
       this.close();
-    },
-  },
+    }
+  }
 };
 </script>

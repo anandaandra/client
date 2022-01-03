@@ -157,7 +157,7 @@ export default {
     headers: [
       { text: "No", value: "no" },
       { text: "Nama File", value: "file" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "Actions", value: "actions", sortable: false }
     ],
     kelasbuka: [],
     editedIndex: -1,
@@ -166,12 +166,12 @@ export default {
       jenis: "",
       file: "",
       tak: "",
-      tanggal: "",
+      tanggal: ""
     },
     defaultItem: {
       bidang: "",
-      tanggal: "",
-    },
+      tanggal: ""
+    }
   }),
 
   date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
@@ -181,13 +181,13 @@ export default {
   computed: {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
-    },
+    }
   },
 
   watch: {
     dialog(val) {
       val || this.close();
-    },
+    }
   },
 
   created() {
@@ -200,23 +200,23 @@ export default {
         {
           no: "1",
           file: "Sosialisasi MOS",
-          status: null,
+          status: null
         },
         {
           no: "1",
           file: "Sosialisasi MOS",
-          status: null,
+          status: null
         },
         {
           no: "1",
           file: "Sosialisasi MOS",
-          status: null,
+          status: null
         },
         {
           no: "1",
           file: "Sosialisasi MOS",
-          status: null,
-        },
+          status: null
+        }
       ];
     },
 
@@ -241,7 +241,7 @@ export default {
         this.kelasbuka.push(this.editedItem);
       }
       this.close();
-    },
-  },
+    }
+  }
 };
 </script>

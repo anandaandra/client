@@ -34,11 +34,11 @@ import TableValidasiAktas from "@/view/content/widgets/kemahasiswaan/TableValida
 
 export default {
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTCard,
-    TableValidasiAktas,
-  },
+    TableValidasiAktas
+  }
 };
 </script>

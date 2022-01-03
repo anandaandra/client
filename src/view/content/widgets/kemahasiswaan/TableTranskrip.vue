@@ -21,20 +21,20 @@ export default {
     headers: [
       { text: "Tahun Kurikulum", value: "no" },
       { text: "Nama Kegiatan", value: "kegiatan" },
-      { text: "Total Poin", value: "poin" },
+      { text: "Total Poin", value: "poin" }
     ],
     informasiumum: [],
     editedIndex: -1,
     editedItem: {
       no: "",
       kegiatan: "",
-      poin: "",
+      poin: ""
     },
     defaultItem: {
       no: "",
       kegiatan: "",
-      poin: "",
-    },
+      poin: ""
+    }
   }),
 
   computed: {},
@@ -51,30 +51,30 @@ export default {
         {
           no: "2017",
           kegiatan: "Kurikulum 2017",
-          poin: "15",
+          poin: "15"
         },
         {
           no: "2017",
           kegiatan: "Kurikulum 2017",
-          poin: "15",
+          poin: "15"
         },
         {
           no: "2017",
           kegiatan: "Kurikulum 2017",
-          poin: "15",
+          poin: "15"
         },
         {
           no: "2017",
           kegiatan: "Kurikulum 2017",
-          poin: "15",
+          poin: "15"
         },
         {
           no: "2017",
           kegiatan: "Kurikulum 2017",
-          poin: "15",
-        },
+          poin: "15"
+        }
       ];
-    },
-  },
+    }
+  }
 };
 </script>
