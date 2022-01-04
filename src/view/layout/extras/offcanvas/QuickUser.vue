@@ -12,7 +12,7 @@
       <span
         class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3"
       >
-        {{ currentUserPersonalInfo.name }}
+        {{ user.name }}
       </span>
       <span class="symbol symbol-35 symbol-light-success">
         <img v-if="false" alt="Pic" :src="currentUserPersonalInfo.photo" />
@@ -64,9 +64,9 @@
               to="/custom-pages/profile"
               class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"
             >
-              {{ getFullName }}
+              {{ user.name }}
             </router-link>
-            <div class="text-muted mt-1">Application Developer</div>
+            <div class="text-muted mt-1">{{ user.nim || user.role }}</div>
             <div class="navi mt-2">
               <a href="#" class="navi-item">
                 <span class="navi-link p-0 pb-2">
@@ -80,7 +80,7 @@
                     </span>
                   </span>
                   <span class="navi-text text-muted text-hover-primary">
-                    {{ currentUserPersonalInfo.email }}
+                    {{ user.email }}
                   </span>
                 </span>
               </a>
@@ -113,36 +113,7 @@ export default {
   name: "KTQuickUser",
   data() {
     return {
-      list: [
-        {
-          title: "Another purpose persuade",
-          desc: "Due in 2 Days",
-          alt: "+28%",
-          svg: "media/svg/icons/Home/Library.svg",
-          type: "warning"
-        },
-        {
-          title: "Would be to people",
-          desc: "Due in 2 Days",
-          alt: "+50%",
-          svg: "media/svg/icons/Communication/Write.svg",
-          type: "success"
-        },
-        {
-          title: "Purpose would be to persuade",
-          desc: "Due in 2 Days",
-          alt: "-27%",
-          svg: "media/svg/icons/Communication/Group-chat.svg",
-          type: "danger"
-        },
-        {
-          title: "The best product",
-          desc: "Due in 2 Days",
-          alt: "+8%",
-          svg: "media/svg/icons/General/Attachment2.svg",
-          type: "info"
-        }
-      ]
+      user: {}
     };
   },
   mounted() {
@@ -151,17 +122,28 @@ export default {
   },
   methods: {
     onLogout() {
-      this.$store
-        .dispatch(LOGOUT)
-        .then(() => this.$router.push({ name: "login" }));
+      localStorage.clear();
+      if (this.user.role === "admin") {
+        this.$router.push({ name: "loginAdmin" });
+      } else {
+        this.$router.push({ name: "login" });
+      }
+      this.$store.dispatch(LOGOUT).then();
     },
     closeOffcanvas() {
       new KTOffcanvas(KTLayoutQuickUser.getElement()).hide();
     }
   },
+  created() {
+    this.user = {
+      name: localStorage.getItem("name"),
+      email: localStorage.getItem("email"),
+      role: localStorage.getItem("role"),
+      nim: localStorage.getItem("nim")
+    };
+  },
   computed: {
     ...mapGetters(["currentUserPersonalInfo"]),
-
     getFullName() {
       return (
         this.currentUserPersonalInfo.name +

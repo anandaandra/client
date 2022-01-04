@@ -27,6 +27,11 @@ export default new Router({
           component: () => import("@/view/pages/kmhs/ValidasiAktivitas.vue")
         },
         {
+          path: "/listaktas",
+          name: "listaktas",
+          component: () => import("@/view/pages/kmhs/ValidasiAktivitas.vue")
+        },
+        {
           path: "/pencarianaktas",
           name: "pencarianaktas",
           component: () => import("@/view/pages/kmhs/PencarianAktivitas.vue")
@@ -51,7 +56,12 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      component: () => import("@/view/pages/auth/Login-1")
+      component: () => import("@/view/pages/auth/LoginMahasiswa")
+    },
+    {
+      path: "/login/admin",
+      name: "loginAdmin",
+      component: () => import("@/view/pages/auth/LoginAdmin")
     },
     {
       // the 404 route, when none of the above matches

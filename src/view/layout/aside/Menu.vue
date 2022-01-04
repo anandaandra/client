@@ -21,11 +21,12 @@
     </router-link>
 
     <li class="menu-section">
-      <h4 class="menu-text">Admin Menu</h4>
+      <h4 class="menu-text">Menu</h4>
       <i class="menu-icon flaticon-more-v2"></i>
     </li>
 
     <router-link
+      v-if="user.role === 'mahasiswa'"
       to="/uploadinfo"
       v-slot="{ href, navigate, isActive, isExactActive }"
     >
@@ -46,6 +47,28 @@
     </router-link>
 
     <router-link
+      v-if="user.role === 'mahasiswa'"
+      to="/listaktas"
+      v-slot="{ href, navigate, isActive, isExactActive }"
+    >
+      <li
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        class="menu-item"
+        :class="[
+          isActive && 'menu-item-active',
+          isExactActive && 'menu-item-active'
+        ]"
+      >
+        <a :href="href" class="menu-link" @click="navigate">
+          <i class="menu-icon fas fa-check"></i>
+          <span class="menu-text">List Aktivitas</span>
+        </a>
+      </li>
+    </router-link>
+
+    <router-link
+      v-if="user.role === 'admin'"
       to="/validasiaktas"
       v-slot="{ href, navigate, isActive, isExactActive }"
     >
@@ -64,6 +87,7 @@
         </a>
       </li>
     </router-link>
+
     <router-link
       to="/laporaktas"
       v-slot="{ href, navigate, isActive, isExactActive }"
@@ -79,11 +103,12 @@
       >
         <a :href="href" class="menu-link" @click="navigate">
           <i class="menu-icon fas fa-folder"></i>
-          <span class="menu-text">Laporan Aktivitas</span>
+          <span class="menu-text">Daftar Mahasiswa</span>
         </a>
       </li>
     </router-link>
     <router-link
+      v-if="user.role === 'admin'"
       to="/usermanage"
       v-slot="{ href, navigate, isActive, isExactActive }"
     >
@@ -98,7 +123,7 @@
       >
         <a :href="href" class="menu-link" @click="navigate">
           <i class="menu-icon fas fa-users"></i>
-          <span class="menu-text">Manage Users</span>
+          <span class="menu-text">Daftar Admin</span>
         </a>
       </li>
     </router-link>
@@ -112,6 +137,16 @@ export default {
     hasActiveChildren(match) {
       return this.$route["path"].indexOf(match) !== -1;
     }
+  },
+  data() {
+    return {
+      user: {}
+    };
+  },
+  created() {
+    this.user = {
+      role: localStorage.getItem("role")
+    };
   }
 };
 </script>
