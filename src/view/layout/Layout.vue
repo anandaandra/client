@@ -28,8 +28,8 @@
             <!-- begin:: Content Head -->
             <KTSubheader
               v-if="subheaderDisplay"
-              v-bind:breadcrumbs="breadcrumbs"
-              v-bind:title="pageTitle"
+              :breadcrumbs="null"
+              :title="`TAK Management System`"
             />
             <!-- end:: Content Head -->
 

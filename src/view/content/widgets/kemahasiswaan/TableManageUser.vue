@@ -1,19 +1,19 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="kelasbuka"
+    :items="daftaradmin"
     :search="search"
     class="elevation-1"
   >
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>Manage User</v-toolbar-title>
+        <v-toolbar-title>Manage Admin</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="350px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-              New Item
+              New Admin
             </v-btn>
           </template>
           <v-card>
@@ -32,26 +32,34 @@
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="editedItem.nama"
+                      v-model="editedItem.nidn"
+                      label="NIDN"
+                      :disabled="editedIndex !== -1"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="editedItem.name"
                       label="Nama"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="editedItem.username"
-                      label="Username"
+                      v-model="editedItem.email"
+                      label="Email"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
                       v-model="editedItem.password"
-                      disabled
+                      :disabled="editedIndex !== -1 ? !status : false"
                       label="Password"
                     ></v-text-field>
                   </v-col>
                   <v-switch
+                    v-if="editedIndex !== -1"
                     v-model="status"
-                    :label="`Status: ${status.toString()}`"
+                    :label="`Edit password`"
                   ></v-switch>
                 </v-row>
               </v-container>
@@ -88,40 +96,41 @@
   </v-data-table>
 </template>
 <script>
+import axios from "@/core/api";
+import { successAlert, errorAlert } from "@/core/plugins/my-swal";
+
 export default {
   data: () => ({
     dialog: false,
     tanggal: false,
-    status: true,
+    status: false,
     search: "",
     headers: [
       { text: "No", value: "no" },
-      { text: "Nama", value: "nama" },
-      { text: "Username", value: "username" },
-      { text: "Status", value: "status" },
+      { text: "NIDN", value: "nidn" },
+      { text: "Name", value: "name" },
+      { text: "Email", value: "email" },
       { text: "Actions", value: "actions", sortable: false }
     ],
-    kelasbuka: [],
+    daftaradmin: [],
     editedIndex: -1,
     editedItem: {
-      no: "",
-      nama: "",
-      username: "",
+      nidn: "",
+      name: "",
       password: "",
-      status: false
+      email: ""
     },
     defaultItem: {
-      no: "",
-      nama: "",
-      username: "",
-      password: "",
-      status: false
+      name: "",
+      nidn: "",
+      email: "",
+      password: ""
     }
   }),
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
+      return this.editedIndex === -1 ? "Tambah Admin" : "Edit Admin";
     }
   },
 
@@ -140,37 +149,25 @@ export default {
       if (status == "aktif") return "green";
       else return "red";
     },
-    initialize() {
-      this.kelasbuka = [
-        {
-          no: "1",
-          nama: "Devi",
-          username: "devi",
-          status: "aktif"
-        },
-        {
-          no: "2",
-          nama: "	evi",
-          username: "devi",
-          status: "aktif"
-        },
-        {
-          no: "4",
-          nama: "	evi",
-          username: "devi",
-          status: "aktif"
-        },
-        {
-          no: "3",
-          nama: "	evi",
-          username: "devi",
-          status: "aktif"
-        }
-      ];
+
+    async initialize() {
+      const adminPayload = await axios({
+        method: "get",
+        url: "/admin"
+      });
+
+      this.daftaradmin = adminPayload.data.map((item, index) => {
+        return {
+          no: index + 1,
+          nidn: item.nidn,
+          name: item.name,
+          email: item.email
+        };
+      });
     },
 
     editItem(item) {
-      this.editedIndex = this.kelasbuka.indexOf(item);
+      this.editedIndex = this.daftaradmin.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
@@ -183,13 +180,32 @@ export default {
       });
     },
 
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.kelasbuka[this.editedIndex], this.editedItem);
-      } else {
-        this.kelasbuka.push(this.editedItem);
+    async save() {
+      try {
+        let response;
+        if (this.editedIndex > -1) {
+          // Edit Admin
+        } else {
+          // Add Admin
+          response = await axios({
+            method: "post",
+            url: "/admin/register",
+            data: {
+              nidn: Number(this.editedItem.nidn),
+              name: this.editedItem.name,
+              email: this.editedItem.email,
+              password: this.editedItem.password
+            }
+          });
+        }
+        if (response) {
+          this.close();
+          successAlert(response.data.message);
+          this.initialize();
+        }
+      } catch (err) {
+        errorAlert(err.response.data.message);
       }
-      this.close();
     }
   }
 };

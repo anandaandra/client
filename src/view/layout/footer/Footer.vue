@@ -10,11 +10,11 @@
           2022 &nbsp;&copy;&nbsp;
         </span>
         <a
-          href="http://keenthemes.com/metronic"
+          href="http://primakara.ac.id"
           target="_blank"
           class="text-dark-75 text-hover-primary"
         >
-          Keenthemes
+          Primakara
         </a>
       </div>
     </div>

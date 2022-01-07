@@ -129,7 +129,7 @@ import { mapGetters, mapState } from "vuex";
 import { LOGOUT } from "@/core/services/store/auth.module";
 import Swal from "sweetalert2";
 
-import axios from "@/core/api/api";
+import axios from "@/core/api";
 
 export default {
   name: "login-1",

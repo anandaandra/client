@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <div class="row"></div>
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col text-center">
+      <img src="/media/logos/bigprimakara.png" class="max-h-80px" alt="" />
+      <h3
+        class="font-weight-bolder text-center font-size-h4 font-size-h1-lg mt-7"
+      >
+        TAK Management System
+      </h3>
+    </div>
   </div>
 </template>
 
