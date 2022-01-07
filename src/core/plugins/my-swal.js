@@ -20,4 +20,4 @@ function errorAlert(message) {
   });
 }
 
-export { successAlert, errorAlert };
+export { successAlert, errorAlert, Swal };

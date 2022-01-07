@@ -1,10 +1,10 @@
 <template>
   <KTCard ref="preview" v-bind:title="title" v-bind:example="true">
-    <template v-slot:title v-if="hasTitleSlot">
+    <!-- <template v-slot:title v-if="true">
       <h3 class="card-title">
-        <slot name="title"></slot>
+        <slot name="title">asd</slot>
       </h3>
-    </template>
+    </template> -->
 
     <template v-slot:body>
       <!--begin::Code example-->

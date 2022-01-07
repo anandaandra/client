@@ -56,11 +56,11 @@
                       label="Password"
                     ></v-text-field>
                   </v-col>
-                  <v-switch
+                  <!-- <v-switch
                     v-if="editedIndex !== -1"
                     v-model="status"
                     :label="`Edit password`"
-                  ></v-switch>
+                  ></v-switch> -->
                 </v-row>
               </v-container>
             </v-card-text>
@@ -83,8 +83,23 @@
     </template>
 
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon color="amber" size="18" class="mr-2" @click="editItem(item)">
+      <v-icon
+        v-if="item.nidn !== 0"
+        color="amber"
+        size="18"
+        class="mr-2"
+        @click="editItem(item)"
+      >
         mdi-pencil
+      </v-icon>
+      <v-icon
+        v-if="item.nidn !== 0"
+        color="red"
+        size="18"
+        class="mr-2"
+        @click="deleteItem(item)"
+      >
+        mdi-delete
       </v-icon>
     </template>
 
@@ -97,7 +112,7 @@
 </template>
 <script>
 import axios from "@/core/api";
-import { successAlert, errorAlert } from "@/core/plugins/my-swal";
+import { successAlert, errorAlert, Swal } from "@/core/plugins/my-swal";
 
 export default {
   data: () => ({
@@ -185,6 +200,14 @@ export default {
         let response;
         if (this.editedIndex > -1) {
           // Edit Admin
+          response = await axios({
+            method: "patch",
+            url: `/admin/${this.editedItem.nidn}`,
+            data: {
+              name: this.editedItem.name,
+              email: this.editedItem.email
+            }
+          });
         } else {
           // Add Admin
           response = await axios({
@@ -206,6 +229,35 @@ export default {
       } catch (err) {
         errorAlert(err.response.data.message);
       }
+    },
+
+    deleteItem(item) {
+      Swal.fire({
+        title: "Hapus Admin",
+        text: "Apakah anda yakin ingin menghapus admin ini?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+        heightAuto: false
+      }).then(async result => {
+        if (result.value) {
+          try {
+            const response = await axios({
+              method: "delete",
+              url: `/admin/${item.nidn}`
+            });
+            if (response) {
+              successAlert(response.data.message);
+              this.initialize();
+            }
+          } catch (err) {
+            errorAlert(err.response.data.message);
+          }
+        }
+      });
     }
   }
 };
