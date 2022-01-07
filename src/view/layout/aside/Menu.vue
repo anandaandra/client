@@ -89,7 +89,7 @@
     </router-link>
 
     <router-link
-      to="/laporaktas"
+      to="/mahasiswamanage"
       v-slot="{ href, navigate, isActive, isExactActive }"
     >
       <li
@@ -102,7 +102,7 @@
         ]"
       >
         <a :href="href" class="menu-link" @click="navigate">
-          <i class="menu-icon fas fa-folder"></i>
+          <i class="menu-icon fas fa-graduation-cap"></i>
           <span class="menu-text">Daftar Mahasiswa</span>
         </a>
       </li>

@@ -37,9 +37,9 @@ export default new Router({
           component: () => import("@/view/pages/kmhs/PencarianAktivitas.vue")
         },
         {
-          path: "/laporaktas",
-          name: "laporaktas",
-          component: () => import("@/view/pages/kmhs/LaporanAktivitas.vue")
+          path: "/mahasiswamanage",
+          name: "mahasiswamanage",
+          component: () => import("@/view/pages/kmhs/ManageMahasiswa.vue")
         },
         {
           path: "/detailaktas",

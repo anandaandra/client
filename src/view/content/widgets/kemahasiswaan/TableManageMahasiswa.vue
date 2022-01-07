@@ -1,19 +1,19 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="daftaradmin"
+    :items="daftarmahasiswa"
     :search="search"
     class="elevation-1"
   >
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>Manage Admin</v-toolbar-title>
+        <v-toolbar-title>Manage Mahasiswa</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="350px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-              New Admin
+              New Mahasiswa
             </v-btn>
           </template>
           <v-card>
@@ -32,8 +32,8 @@
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="editedItem.nidn"
-                      label="NIDN"
+                      v-model="editedItem.nim"
+                      label="NIM"
                       :disabled="editedIndex !== -1"
                     ></v-text-field>
                   </v-col>
@@ -83,22 +83,15 @@
     </template>
 
     <template v-slot:[`item.actions`]="{ item }">
-      <v-icon
-        v-if="item.nidn !== 0"
-        color="amber"
-        size="18"
-        class="mr-2"
-        @click="editItem(item)"
-      >
+      <router-link to="/detailaktas" v-slot="{ navigate }" custom>
+        <v-icon color="blue" size="18" class="mr-2" @click="navigate(item)">
+          mdi-eye
+        </v-icon>
+      </router-link>
+      <!-- <v-icon color="amber" size="18" class="mr-2" @click="editItem(item)">
         mdi-pencil
-      </v-icon>
-      <v-icon
-        v-if="item.nidn !== 0"
-        color="red"
-        size="18"
-        class="mr-2"
-        @click="deleteItem(item)"
-      >
+      </v-icon> -->
+      <v-icon color="red" size="18" class="mr-2" @click="deleteItem(item)">
         mdi-delete
       </v-icon>
     </template>
@@ -122,22 +115,22 @@ export default {
     search: "",
     headers: [
       { text: "No", value: "no" },
-      { text: "NIDN", value: "nidn" },
+      { text: "NIM", value: "nim" },
       { text: "Name", value: "name" },
       { text: "Email", value: "email" },
       { text: "Actions", value: "actions", sortable: false }
     ],
-    daftaradmin: [],
+    daftarmahasiswa: [],
     editedIndex: -1,
     editedItem: {
-      nidn: "",
+      nim: "",
       name: "",
       password: "",
       email: ""
     },
     defaultItem: {
       name: "",
-      nidn: "",
+      nim: "",
       email: "",
       password: ""
     }
@@ -145,7 +138,7 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Tambah Admin" : "Edit Admin";
+      return this.editedIndex === -1 ? "Tambah Mahasiswa" : "Edit Mahasiswa";
     }
   },
 
@@ -166,18 +159,18 @@ export default {
     },
 
     async initialize() {
-      const adminPayload = await axios({
+      const mahasiswaPayload = await axios({
         method: "get",
-        url: "/admin",
+        url: "/mahasiswa",
         headers: {
           Authorization: localStorage.getItem("token")
         }
       });
 
-      this.daftaradmin = adminPayload.data.map((item, index) => {
+      this.daftarmahasiswa = mahasiswaPayload.data.map((item, index) => {
         return {
           no: index + 1,
-          nidn: item.nidn,
+          nim: item.nim,
           name: item.name,
           email: item.email
         };
@@ -185,7 +178,7 @@ export default {
     },
 
     editItem(item) {
-      this.editedIndex = this.daftaradmin.indexOf(item);
+      this.editedIndex = this.daftarmahasiswa.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
@@ -202,25 +195,22 @@ export default {
       try {
         let response;
         if (this.editedIndex > -1) {
-          // Edit Admin
-          response = await axios({
-            method: "patch",
-            url: `/admin/${this.editedItem.nidn}`,
-            data: {
-              name: this.editedItem.name,
-              email: this.editedItem.email
-            },
-            headers: {
-              Authorization: localStorage.getItem("token")
-            }
-          });
+          // Edit Mahasiswa
+          // response = await axios({
+          //   method: "patch",
+          //   url: `/mahasiswa/${this.editedItem.nim}`,
+          //   data: {
+          //     name: this.editedItem.name,
+          //     email: this.editedItem.email,
+          //   },
+          // });
         } else {
-          // Add Admin
+          // Add Mahasiswa
           response = await axios({
             method: "post",
-            url: "/admin/register",
+            url: "/mahasiswa/register",
             data: {
-              nidn: Number(this.editedItem.nidn),
+              nim: Number(this.editedItem.nim),
               name: this.editedItem.name,
               email: this.editedItem.email,
               password: this.editedItem.password
@@ -242,8 +232,8 @@ export default {
 
     deleteItem(item) {
       Swal.fire({
-        title: "Hapus Admin",
-        text: "Apakah anda yakin ingin menghapus admin ini?",
+        title: "Hapus Mahasiswa",
+        text: "Apakah anda yakin ingin menghapus mahasiswa ini?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -256,7 +246,7 @@ export default {
           try {
             const response = await axios({
               method: "delete",
-              url: `/admin/${item.nidn}`,
+              url: `/mahasiswa/${item.nim}`,
               headers: {
                 Authorization: localStorage.getItem("token")
               }
